@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "experimentalDecorators": true,
+      "target": "ESNext",
+      "module": "commonjs",
+      "outDir": "generators",
+      "rootDir": "src",
+      "sourceMap": true,
+      "declaration": true,
+      "declarationMap": true
+    },
+    "include": [
+      "src"
+    ],
+    "exclude": [
+      "node_modules",
+      "src/*/templates",
+      "test",
+      "**/*.spec.ts",
+      "**/*.test.ts",
+    ]
+  }
