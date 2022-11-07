@@ -21,12 +21,14 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
+    "js-yaml": "^4.1.0",
     "uuid": "^9.0.0",
     "yeoman-generator": "^5.7.0",
     "yosay": "^2.0.2"
   },
   "devDependencies": {
     "@types/jest": "^29.2.0",
+    "@types/js-yaml": "^4.0.5",
     "@types/node": "^14.14.19",
     "@types/yeoman-generator": "^5.2.11",
     "@types/yosay": "^2.0.1",

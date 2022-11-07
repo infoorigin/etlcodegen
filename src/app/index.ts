@@ -1,6 +1,8 @@
 import Generator = require('yeoman-generator')
 import {green} from 'chalk';
 import yosay = require('yosay')
+import {load} from 'js-yaml';
+import * as filesystem from 'fs';
 
 interface Answers {
   answer1: string
@@ -23,7 +25,7 @@ module.exports = class extends Generator<Arguments> {
     this.argument("arg2", { type: String, required: false, default: 'arg2default', description: 'Argument 2' })
     this.argument("argRest", { type: Array, required: false, default: [], description: 'Rest arguments' })
 
-    this.option("option11", { type: Boolean, default: false, description: 'Option 1', alias: 'o' })
+    this.option("config", { type: String, default: 'vars.yml', description: 'Configuration File', alias: 'o' })
     this.option("option2", { type: String, default: 'opt2default', description: 'Option 2', alias: 'p' })
   }
 
@@ -45,6 +47,13 @@ module.exports = class extends Generator<Arguments> {
   writing() {
     this.fs.delete('project');
     console.log('project deleted');
+    console.log('answers :',this.answers);
+    console.log('config :',this.options['config']);
+    console.log('config exists :',filesystem.existsSync(this.options['config']))
+    if(filesystem.existsSync(this.options['config'])){
+      const cfdata = load(filesystem.readFileSync(this.options['config'], 'utf8'));
+      console.log("cfdata :",cfdata);
+    }
     // const templateData = {
     //   ...this.answers,
     //   ...this.options
